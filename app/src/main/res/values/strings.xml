@@ -1,0 +1,30 @@
+<resources>
+    <!--Экран первоначальной настройки-->
+    <string name="app_name">Drink Water!</string>
+    <string name="first_setup">Configure app</string>
+    <string name="gender_choose">Select your gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="weight_enter">Enter your weight</string>
+    <string name="change_settings_notification">Weight and male can be changed in settings</string>
+
+    <!--Описание приложения-->
+    <string name="about_title">About</string>
+    <string name="about_text">about text</string>
+
+    <!--Меню-->
+    <string name="settings">Settings</string>
+    <string name="exit">Exit</string>
+    <string name="stats">Stats</string>
+
+    <!--Главный экран-->
+    <string name="goal">Your goal on today: </string>
+    <string name="cup_select">Chose your cup</string>
+    <string name="drinking_accept">Accept drink</string>
+    <string name="cup_add_new">Add new cup</string>
+    <string name="history">History </string>
+
+    <!--Полезные советы-->
+
+
+</resources>
