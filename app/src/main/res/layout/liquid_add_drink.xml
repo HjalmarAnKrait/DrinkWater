@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:background="@color/colorAccent"
+    tools:context=".Activities.LaunchActivities.SplashActivity">
+
+    <com.lukelorusso.verticalseekbar.VerticalSeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="97dp"
+        android:layout_height="434dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="25dp"
+        app:vsb_bar_background="@color/colorPrimaryLight"
+        app:vsb_bar_corner_radius="15dp"
+        app:vsb_bar_width="50dp"
+        app:vsb_click_to_set_progress="true"
+        app:vsb_max_placeholder_position="inside"
+        app:vsb_max_value="500"
+        app:vsb_min_placeholder_position="inside"
+        app:vsb_progress="250"
+        app:vsb_show_thumb="true"
+        app:vsb_thumb_container_corner_radius="10dp"
+        app:vsb_thumb_container_tint="@color/textColorPrimary"
+        app:vsb_use_thumb_to_set_progress="true" />
+
+    <TextView
+        android:id="@+id/liquidVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="50sp"
+        android:paddingTop="70dp"
+        android:layout_toRightOf="@id/seekBar"
+        android:text="500ml"/>
+    <TextView
+        android:id="@+id/liquidType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="40sp"
+        android:paddingTop="20dp"
+        android:layout_below="@id/liquidVolume"
+        android:layout_toRightOf="@id/seekBar"
+        android:text="Water"/>
+    <TextView
+        android:id="@+id/totalSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        android:paddingTop="20dp"
+        android:layout_below="@id/liquidType"
+        android:layout_toRightOf="@id/seekBar"
+        android:text="* 1.0 = 500ml"/>
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:padding="20dp"
+        android:minWidth="150dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_selector_rounded"
+        android:layout_below="@id/totalSum"
+        android:layout_toRightOf="@id/seekBar"
+        android:text="@string/add"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:textSize="20sp"
+        android:padding="20dp"
+        android:minWidth="150dp"
+        android:textAllCaps="false"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_selector_rounded"
+        android:layout_below="@id/addButton"
+        android:layout_toRightOf="@id/seekBar"
+        android:text="@string/cancel"/>
+
+</RelativeLayout>

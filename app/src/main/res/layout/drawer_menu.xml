@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryLight">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:paddingTop="20dp"
+       android:paddingBottom="20dp"
+       android:background="@color/colorPrimaryShaded"
+       android:orientation="horizontal">
+       <TextView
+           android:id="@+id/dateText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="05/03/2018"
+           android:fontFamily="@font/regular"
+           android:padding="20dp"
+           android:textColor="@color/textColorPrimary"
+           android:textSize="20sp"
+           android:layout_weight="1"/>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="start"
+           android:orientation="vertical"
+           android:layout_weight="0.5">
+           <TextView
+               android:id="@+id/cityText"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Tomsk"
+               android:fontFamily="@font/regular"
+
+               android:gravity="center"
+               android:textColor="@color/textColorPrimary"
+               android:textSize="26sp"/>
+           <TextView
+               android:id="@+id/temperatureText"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="34 C"
+               android:layout_marginTop="10dp"
+               android:fontFamily="@font/regular"
+               android:gravity="center"
+               android:textColor="@color/textColorPrimary"
+               android:textSize="20sp"/>
+
+
+       </LinearLayout>
+   </LinearLayout>
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:text="Username"
+        android:padding="10dp"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="40dp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/totalDrunk"
+        android:text="Total drunk: 34321 ml"
+        android:padding="10dp"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/daysCompletes"
+        android:text="Days complete: 0"
+        android:padding="10dp"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:id="@+id/lastDrunk"
+        android:text="Last drunk: water 200ml "
+        android:padding="10dp"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/regular"
+        android:textSize="20sp"
+        android:paddingLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        />
+
+    <TextView
+        android:id="@+id/historyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_selector"
+        android:fontFamily="@font/regular"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/history"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/settingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_selector"
+        android:fontFamily="@font/regular"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/settings"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/aboutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_selector"
+        android:fontFamily="@font/regular"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/about_title"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/helpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_selector"
+        android:fontFamily="@font/regular"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/help"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/exitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/button_selector"
+        android:fontFamily="@font/regular"
+        android:onClick="onClick"
+        android:padding="10dp"
+        android:paddingLeft="20dp"
+        android:text="@string/exit"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/logo_transparent"/>
+
+
+</LinearLayout>

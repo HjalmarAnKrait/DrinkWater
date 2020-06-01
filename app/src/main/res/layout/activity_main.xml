@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.filippudak.ProgressPieView.ProgressPieView
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="336dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="onClick"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="3dp"
+            android:text="500/2000ml"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="30sp"
+            app:ppvBackgroundColor="@color/colorPrimaryLight"
+            app:ppvInverted="false"
+            app:ppvMax="100"
+            app:ppvProgress="57"
+            app:ppvProgressColor="@color/colorAccent"
+            app:ppvProgressFillType="radial"
+            app:ppvShowText="true"
+            app:ppvStrokeColor="@color/colorPrimaryDark"
+            app:ppvStrokeWidth="10dp"
+           />
+
+        <TextView
+            android:id="@+id/tapToCircleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progress_bar"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/regular"
+            android:gravity="center"
+            android:text="@string/tap_to_circle_to_drink_a_liquid"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tipsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/tapToCircleText"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_edges"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:fontFamily="@font/handwritten"
+            android:padding="20dp"
+            android:text="@string/weight_description"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical">
+        <include layout="@layout/drawer_menu"/>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
