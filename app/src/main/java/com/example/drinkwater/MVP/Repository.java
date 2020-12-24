@@ -15,6 +15,13 @@ import com.example.drinkwater.POJO.WaterConsumption;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/*
+* Мы создаем этот класс в 3 местах а с ним и объект базы данных, это очень тяжелая и долгая операция.
+* Пока у тебя нет DI либы, можно создать Singleton и давать ему Application context. То есть из Application.
+* Так каждый раз, когда нам нужна будет бд, Singleton будет возвращать нам 1 и тот же instance
+* https://refactoring.guru/ru/design-patterns/singleton/java/example
+*
+* Этот класс нужно разбить соостветственно таблице с которой он работает или preferen'сам */
 public class Repository implements MainContract.Repository
 {
     private DatabaseHelper databaseHelper;
@@ -280,6 +287,10 @@ public class Repository implements MainContract.Repository
 
         Cursor cursor = db.rawQuery(SQL, null);
 
+        // формат:  if (..) {
+        // ..
+        // }
+        // На отступы тоже обрати внимание
         if(!cursor.moveToFirst())
         {
             cursor.close();
