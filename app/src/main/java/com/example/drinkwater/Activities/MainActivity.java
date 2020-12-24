@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        // Что за 432? Используй какую-то библиотеку для логов либо TAG = имяКласса/имяМетода
         Log.e("432", "beforeSetContent");
         setContentView(R.layout.activity_main);
         Log.e("432", "After");

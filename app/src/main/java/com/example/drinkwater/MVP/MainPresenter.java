@@ -27,6 +27,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+/*
+  Почитай пж и исправь во всем проекте форматирование
+* https://www.magnumblog.space/java/131-translating-java-code-conventions
+* */
 public class MainPresenter implements MainContract.MainPresenter
 {
     private MainContract.ViewExtedned view;
@@ -38,7 +42,7 @@ public class MainPresenter implements MainContract.MainPresenter
     private Context context;
     private String userName, totalDrunk, daysComplete, lastDrunk, currentDate, city, temperature;
     private int userId, dayId;
-    private Long tsLong = System.currentTimeMillis()/1000;
+    private Long tsLong = System.currentTimeMillis()/1000;  // добавить пробелы
     private String scaleType;
     private String volumeType;
     private double scaleMultipler;
@@ -51,12 +55,14 @@ public class MainPresenter implements MainContract.MainPresenter
     private Dialog activityDialog;
     private boolean isShownToast = false;
 
-    private View dialogView;
-    private VerticalSeekBar dialogSeekBar;
-    private TextView dialogLiquidVolume, dialogLiquidType, dialogLiquidTotalSum;
-    private Button dialogCancelButton, dialogAddButton;
+    private View dialogView; // убрать
+    private VerticalSeekBar dialogSeekBar;  // убрать
+    private TextView dialogLiquidVolume, dialogLiquidType, dialogLiquidTotalSum;  // убрать
+    private Button dialogCancelButton, dialogAddButton;  // убрать
     private double prog;
     private DecimalFormat dc = new DecimalFormat("#.#");
+
+    // Даже click listener здесь!?
     private View.OnClickListener onClickListener = new View.OnClickListener()
     {
         @Override
@@ -79,6 +85,7 @@ public class MainPresenter implements MainContract.MainPresenter
         this.view = view;
     }
 
+    // почему viewId в presenter?
     @Override
     public void onButtonWasClicked(int viewId)
     {
@@ -127,6 +134,7 @@ public class MainPresenter implements MainContract.MainPresenter
 
     }
 
+    // Зачем тут className вообще?
     @Override
     public void onCreate(String className)
     {
@@ -176,6 +184,9 @@ public class MainPresenter implements MainContract.MainPresenter
 
     }
 
+    /*
+    * Если мы даем Context в presenter то логичнее будет назвать метод setContext?
+    * */
     @Override
     public void getContext(Context context)
     {
@@ -287,6 +298,8 @@ public class MainPresenter implements MainContract.MainPresenter
         return context.getResources().getString(id);
     }
 
+    /* Это не MVP, MVVM и даже не MVC если ты даешь ссылки на вьюшки в presenter. ТАК НИГДЕ НЕЛЬЗЯ!)
+     вместо этого создай по методу в контракте, что ты хочешь сделать с progressPieView. См ниже */
     @Override
     public void getProgressPieView(ProgressPieView progressPieView)
     {
@@ -317,15 +330,21 @@ public class MainPresenter implements MainContract.MainPresenter
         lastDrunk = repository.getLastConsumption(dayId).getLiquid_name()
                 + " " + (int)(repository.getLastConsumption(dayId).getConsumption_volume()*scaleMultipler) + " " + volumeType;
         currentDate = repository.getStringDateByLong(tsLong);
+
+        // зачем NULL? просто пустая строка
         city = "NULL";
         temperature = "NULL";
         daysComplete = "NULL";
         onTodayGoal = ((repository.getUserWeight() * 1) * 0.032 + repository.getActivityDuration() * (60/100))*1000;
         todayGoalString = "" + repository.getDayDrunkSumm() + "/" + (int)onTodayGoal + " " + volumeType;
+
+        // Вместо этого view.setProgressText(String text);
         progressPieView.setText(todayGoalString);
+
         int progress = (int)(repository.getDayDrunkSumm()/(onTodayGoal/100));
         if(progress >= 99)
         {
+            // Вместо этого view.setProgressValue(int value);
             progressPieView.setProgress(100);
             if(!isShownToast)
             {
@@ -335,18 +354,32 @@ public class MainPresenter implements MainContract.MainPresenter
         }
         else
         {
+            // Вместо этого view.setProgressValue(int value);
             progressPieView.setProgress(progress);
         }
 
 
+        /* Presenter не знает о ресурсах!!! */
 
-
+        // view.setUserName(String userName);
         view.setText(userName, R.id.usernameText);
+
+        // view?.setTotalDrunk(int totalDrunk);
         view.setText(context.getResources().getString(R.string.total_drank_summ) + totalDrunk + " " + scaleMultipler, R.id.totalDrunk);
+
+        // view?.setDaysComplete(int daysComplete);
         view.setText(context.getResources().getString(R.string.days_complete) + daysComplete, R.id.daysCompletes);
+
+        // по аналогии
         view.setText(context.getResources().getString(R.string.last_drunk) +lastDrunk, R.id.lastDrunk);
+
+        // аналогично
         view.setText(currentDate, R.id.dateText);
+
+        // аналогично
         view.setText(city, R.id.cityText);
+
+        // аналогично
         view.setText(temperature + " C", R.id.temperatureText);
     }
 
@@ -356,7 +389,12 @@ public class MainPresenter implements MainContract.MainPresenter
         servicePreferences.edit().remove("password").apply();
         servicePreferences.edit().remove("dateLong").apply();
         servicePreferences.edit().remove("userId").apply();
+
+        // view.openAuth() и туда этот код. Контекста здесь быть не должно
         context.startActivity(new Intent(context, RegAuthActivity.class));
+
+        // presenter не знает что за view у нас. То ли activity то ли fragment. А может просто View.
+        // так что view.exit() будет логичнее
         view.finishActivity();
     }
 }
